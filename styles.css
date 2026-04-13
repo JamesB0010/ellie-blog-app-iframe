@@ -1,0 +1,38 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+#posts{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blogBox {
+    border: solid 4px #1c0e01be;
+    background-color: #d5be8c78;
+    padding: 4%;
+    margin: 0.7%;
+    border-radius: 10px;
+}
+.blogBox:hover {
+    cursor: pointer;
+    background-color: #a5956f78;
+
+}
+
+.detailsTag {
+    width: 100%;
+}
+
+.content {
+    margin: 0% 3%;
+    border: solid 4px #1c0e01be;
+    background-color: #d5be8c78;
+    padding: 3%;
+    border-radius: 10px;
+}
