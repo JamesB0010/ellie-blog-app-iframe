@@ -12,7 +12,8 @@
     }
 
     window.parent.postMessage(
-        document.body.scrollHeight
+        document.body.scrollHeight,
+        "*"
     )
 }
 
