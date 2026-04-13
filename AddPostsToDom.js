@@ -40,3 +40,7 @@ const generatePostNodes = (({title, content}) =>
 });
 
 addPostsToDom();
+
+window.parent.postMessage(
+    document.body.scrollHeight
+)
