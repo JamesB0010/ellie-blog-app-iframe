@@ -10,6 +10,10 @@
         const postNode = generatePostNodes(post);
         parent.appendChild(postNode);
     }
+
+    window.parent.postMessage(
+        document.body.scrollHeight
+    )
 }
 
 const generatePostNodes = (({title, content}) =>
@@ -39,8 +43,4 @@ const generatePostNodes = (({title, content}) =>
     return details;
 });
 
-await addPostsToDom();
-
-window.parent.postMessage(
-    document.body.scrollHeight
-)
+addPostsToDom();
