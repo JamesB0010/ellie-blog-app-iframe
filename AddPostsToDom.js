@@ -6,13 +6,14 @@ const parentToIframeMessages = {
     requestScreenDimentions: "requestScreenDimentions"
 };
 
+const parent = document.querySelector("#posts");
+
 const addPostsToDom = async () => {
     const posts = await fetch("https://ellie-blog-app-api.onrender.com/posts").then(res =>
     {
         return res.json();
     })
     
-    const parent = document.querySelector("#posts");
     
     for (const post of posts){
         const postNode = generatePostNodes(post);
@@ -56,7 +57,7 @@ window.addEventListener("message", event =>
 {
     if (event.data.message === parentToIframeMessages.requestScreenDimentions){
         window.parent.postMessage(
-            {message: iframeToParentMessages.returnScreenDimentions, height: document.body.scrollHeight},
+            {message: iframeToParentMessages.returnScreenDimentions, height: parent.innerHeight},
             "*"
         )
     }
