@@ -46,6 +46,8 @@ const generatePostNode = (({title, content}) =>
     
     details.appendChild(summary);
     details.appendChild(contentDiv);
+
+    details.addEventListener("toggle", sendReturnScreenDimentionsMessageToParent);
     
     return details;
 });
