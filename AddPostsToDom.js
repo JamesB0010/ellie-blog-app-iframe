@@ -20,8 +20,8 @@ const addPostsToDom = async () => {
         parent.appendChild(postNode);
     }
     
-    console.log(parent.innerHeight);
-    const data = JSON.stringify({height: parent.innerHeight, width: parent.innerWidth});
+    console.log(parent.getBoundingClientRect());
+    const data = JSON.stringify(parent.getBoundingClientRect());
     window.parent.postMessage(
 
         {message: iframeToParentMessages.returnScreenDimentions, data: data},
@@ -59,7 +59,7 @@ const generatePostNode = (({title, content}) =>
 window.addEventListener("message", event =>
 {
     if (event.data.message === parentToIframeMessages.requestScreenDimentions){
-        const data = JSON.stringify({height: parent.innerHeight, width: parent.innerWidth});
+        const data = JSON.stringify(parent.getBoundingClientRect());
         window.parent.postMessage(
             {message: iframeToParentMessages.returnScreenDimentions, data: data},
             "*"
