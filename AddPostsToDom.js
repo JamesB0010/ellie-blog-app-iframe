@@ -16,10 +16,11 @@ const addPostsToDom = async () => {
     
     
     for (const post of posts){
-        const postNode = generatePostNodes(post);
+        const postNode = generatePostNode(post);
         parent.appendChild(postNode);
     }
     
+    console.log(parent.innerHeight);
     const data = JSON.stringify({height: parent.innerHeight, width: parent.innerWidth});
     window.parent.postMessage(
 
@@ -28,7 +29,7 @@ const addPostsToDom = async () => {
     )
 }
 
-const generatePostNodes = (({title, content}) =>
+const generatePostNode = (({title, content}) =>
 {
 //<details class="detailsTag">
 //    <summary class="blogBox">
