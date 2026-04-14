@@ -14,9 +14,13 @@ const addPostsToDom = async () => {
         return res.json();
     })
     
-    
+    const postNodes = [];
     for (const post of posts){
         const postNode = generatePostNode(post);
+        postNodes.unshift(postNode);
+    }
+    
+    for (const postNode of postNodes){
         parent.appendChild(postNode);
     }
     
