@@ -2,6 +2,10 @@
     returnScreenDimentions: "returnScreenDimentions"
 };
 
+const parentToIframeMessages = {
+    requestScreenDimentions: "requestScreenDimentions"
+};
+
 const addPostsToDom = async () => {
     const posts = await fetch("https://ellie-blog-app-api.onrender.com/posts").then(res =>
     {
@@ -50,6 +54,12 @@ const generatePostNodes = (({title, content}) =>
 
 window.addEventListener("message", event =>
 {
+    if (event.data.message === parentToIframeMessages.requestScreenDimentions){
+        window.parent.postMessage(
+            {message: iframeToParentMessages.returnScreenDimentions, height: document.body.scrollHeight},
+            "*"
+        )
+    }
 });
 
 addPostsToDom();
