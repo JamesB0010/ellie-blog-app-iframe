@@ -12,7 +12,7 @@
     }
 
     window.parent.postMessage(
-        document.body.scrollHeight,
+        {message: "init", height: document.body.scrollHeight},
         "*"
     )
 }
@@ -42,6 +42,10 @@ const generatePostNodes = (({title, content}) =>
     details.appendChild(contentDiv);
     
     return details;
+});
+
+window.addEventListener("message", event =>
+{
 });
 
 addPostsToDom();
