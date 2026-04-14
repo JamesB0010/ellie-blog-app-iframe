@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: fontsncss3;
 }
 
 #posts{
@@ -20,6 +21,7 @@
     padding: 4%;
     margin: 0.7%;
     border-radius: 10px;
+    font-size: 1.5rem;
 }
 .blogBox:hover {
     cursor: pointer;
@@ -37,4 +39,9 @@
     background-color: #d5be8c78;
     padding: 3%;
     border-radius: 10px;
+}
+
+@font-face {
+    font-family: 'fontsncss3';
+    src: url(./lacythethree.ttf);
 }
