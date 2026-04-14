@@ -19,9 +19,11 @@ const addPostsToDom = async () => {
         const postNode = generatePostNodes(post);
         parent.appendChild(postNode);
     }
-
+    
+    const data = JSON.stringify({height: parent.innerHeight, width: parent.innerWidth});
     window.parent.postMessage(
-        {message: iframeToParentMessages.returnScreenDimentions, height: document.body.scrollHeight},
+
+        {message: iframeToParentMessages.returnScreenDimentions, data: data},
         "*"
     )
 }
@@ -58,7 +60,7 @@ window.addEventListener("message", event =>
     if (event.data.message === parentToIframeMessages.requestScreenDimentions){
         const data = JSON.stringify({height: parent.innerHeight, width: parent.innerWidth});
         window.parent.postMessage(
-            {message: iframeToParentMessages.returnScreenDimentions, data},
+            {message: iframeToParentMessages.returnScreenDimentions, data: data},
             "*"
         )
     }
