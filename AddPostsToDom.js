@@ -1,4 +1,8 @@
-﻿const addPostsToDom = async () => {
+﻿const iframeToParentMessages = {
+    returnScreenDimentions: "returnScreenDimentions"
+};
+
+const addPostsToDom = async () => {
     const posts = await fetch("https://ellie-blog-app-api.onrender.com/posts").then(res =>
     {
         return res.json();
@@ -12,7 +16,7 @@
     }
 
     window.parent.postMessage(
-        {message: "init", height: document.body.scrollHeight},
+        {message: iframeToParentMessages.returnScreenDimentions, height: document.body.scrollHeight},
         "*"
     )
 }
