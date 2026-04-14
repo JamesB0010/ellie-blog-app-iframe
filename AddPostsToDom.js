@@ -56,8 +56,9 @@ const generatePostNodes = (({title, content}) =>
 window.addEventListener("message", event =>
 {
     if (event.data.message === parentToIframeMessages.requestScreenDimentions){
+        const data = JSON.stringify({height: parent.innerHeight, width: parent.innerWidth});
         window.parent.postMessage(
-            {message: iframeToParentMessages.returnScreenDimentions, height: parent.innerHeight},
+            {message: iframeToParentMessages.returnScreenDimentions, data},
             "*"
         )
     }
