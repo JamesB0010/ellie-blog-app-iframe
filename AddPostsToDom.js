@@ -20,13 +20,7 @@ const addPostsToDom = async () => {
         parent.appendChild(postNode);
     }
     
-    console.log(parent.getBoundingClientRect());
-    const data = JSON.stringify(parent.getBoundingClientRect());
-    window.parent.postMessage(
-
-        {message: iframeToParentMessages.returnScreenDimentions, data: data},
-        "*"
-    )
+    sendReturnScreenDimentionsMessageToParent();
 }
 
 const generatePostNode = (({title, content}) =>
@@ -59,12 +53,17 @@ const generatePostNode = (({title, content}) =>
 window.addEventListener("message", event =>
 {
     if (event.data.message === parentToIframeMessages.requestScreenDimentions){
-        const data = JSON.stringify(parent.getBoundingClientRect());
-        window.parent.postMessage(
-            {message: iframeToParentMessages.returnScreenDimentions, data: data},
-            "*"
-        )
+        sendReturnScreenDimentionsMessageToParent();
     }
 });
+
+const sendReturnScreenDimentionsMessageToParent = () =>
+{
+    const data = JSON.stringify(parent.getBoundingClientRect());
+    window.parent.postMessage(
+        {message: iframeToParentMessages.returnScreenDimentions, data: data},
+        "*"
+    );
+}
 
 addPostsToDom();
