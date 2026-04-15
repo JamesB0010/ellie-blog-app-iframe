@@ -3,6 +3,7 @@
     padding: 0px;
     overflow: hidden;
     font-family: fontsncss3;
+    font-size: 1.5rem;
 }
 
 #posts{
@@ -23,7 +24,6 @@
     padding: 4%;
     margin: 0.7%;
     border-radius: 10px;
-    font-size: 1.5rem;
 }
 .blogBox:hover {
     cursor: pointer;
