@@ -59,8 +59,8 @@ const generatePostNode = (({title, content}) =>
         contentString = content;
     }
 
-    summary.innerHTML = titleString;
-    contentDiv.innerHTML = contentString;
+    summary.innerHTML = titleString.replace(/\n/g, "<br>");
+    contentDiv.innerHTML = contentString.replace(/\n/g, "<br>");
     
     details.appendChild(summary);
     details.appendChild(contentDiv);
