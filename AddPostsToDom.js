@@ -45,19 +45,8 @@ const generatePostNode = (({title, content}) =>
     summary.className = "blogBox";
     contentDiv.className = "content";
     
-    let titleString;
-    let contentString;
-    try {
-        titleString = JSON.parse(title);
-    }    catch (e){
-        titleString = title;
-    }
-
-    try {
-        contentString = JSON.parse(content);
-    }    catch (e){
-        contentString = content;
-    }
+    const titleString = JSON.parse(title);
+    const contentString = JSON.parse(content);
 
     summary.innerHTML = titleString.replace(/\n/g, "<br>");
     contentDiv.innerHTML = contentString.replace(/\n/g, "<br>");
