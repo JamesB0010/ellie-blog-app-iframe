@@ -48,18 +48,19 @@ const generatePostNode = (({title, content}) =>
     let titleString;
     let contentString;
     try {
-        titleString = JSON.stringify(title);
+        titleString = JSON.parse(title);
     }    catch (e){
         titleString = title;
     }
 
     try {
-        contentString = JSON.stringify(content);
+        contentString = JSON.parse(content);
     }    catch (e){
         contentString = content;
     }
-    summary.innerHTML = JSON.parse(title);
-    contentDiv.innerHTML = JSON.parse(content);
+
+    summary.innerHTML = titleString;
+    contentDiv.innerHTML = contentString;
     
     details.appendChild(summary);
     details.appendChild(contentDiv);
