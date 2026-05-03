@@ -45,8 +45,8 @@ const generatePostNode = (({title, content}) =>
     summary.className = "blogBox";
     contentDiv.className = "content";
     
-    summary.innerHTML = `${title}`;
-    contentDiv.innerHTML = content;
+    summary.innerHTML = JSON.parse(title);
+    contentDiv.innerHTML = JSON.parse(content);
     
     details.appendChild(summary);
     details.appendChild(contentDiv);
