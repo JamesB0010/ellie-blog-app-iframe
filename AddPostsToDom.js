@@ -45,6 +45,19 @@ const generatePostNode = (({title, content}) =>
     summary.className = "blogBox";
     contentDiv.className = "content";
     
+    let titleString;
+    let contentString;
+    try {
+        titleString = JSON.stringify(title);
+    }    catch (e){
+        titleString = title;
+    }
+
+    try {
+        contentString = JSON.stringify(content);
+    }    catch (e){
+        contentString = content;
+    }
     summary.innerHTML = JSON.parse(title);
     contentDiv.innerHTML = JSON.parse(content);
     
